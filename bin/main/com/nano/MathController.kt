@@ -20,13 +20,15 @@ class MathController {
     @Post("/add", produces = [MediaType.APPLICATION_JSON])
     fun add(@Body numbers: Numbers): HttpResponse<String> {
         val result = numbers.first + numbers.second
-        return HttpResponse.ok("result: {$result}")
+        val jsonResponse = "{\"result\": $result}"
+        return HttpResponse.ok(jsonResponse)
     }
 
     @Post("/subtract", produces = [MediaType.APPLICATION_JSON])
     fun subtract(@Body numbers: Numbers): HttpResponse<String> {
         val result =numbers.first - numbers.second
-        return HttpResponse.ok("result: {$result}")
+        val jsonResponse = "{\"result\": $result}"
+        return HttpResponse.ok(jsonResponse)
     }
 }
 
